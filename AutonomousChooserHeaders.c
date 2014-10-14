@@ -17,8 +17,3 @@ int Side = Ramp;
 int Strategy = Offense;
 
 void ChooseStrategy();
-
-task main()
-{
-
-}
