@@ -177,12 +177,12 @@ void ungripGoal()
 	servo[servoGrip2] = 100;
 }
 
-task main()
-{
-	goInches(60, 60);
-	turnLeftDegrees(90, 60);
+//task main()
+//{
+//	goInches(60, 60);
+//	turnLeftDegrees(90, 60);
 
-}
+//}
 
 //1440 ticks per revolution
 //4 inch diameter wheel
