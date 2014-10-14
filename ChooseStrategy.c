@@ -5,29 +5,50 @@
 void ChooseStrategy()
 {
 	eraseDisplay(); //Erase the display
-	wait1Msec(300); //prevents accidental selections
+
 	nxtDisplayTextLine(1, "Choose Color: ");
 	nxtDisplayStringAt(15, 46, "Red");
-	//sets variables for nxt buttons)
-	int mid = 3;
-	int right = 1;
-	int left = 2;
-	string Color = "Red";
+	wait1Msec(300); //prevents accidental selections
+
 	while (nNxtButtonPressed != mid)
 	{
 		if(nNxtButtonPressed == left || nNxtButtonPressed == right)
 		{
-			if (Color == "Blue")
+			if (Color == Blue)
 			{
-				Color = "Red";
+				Color = Red;
 				nxtDisplayClearTextLine(2);
 				nxtDisplayStringAt(15, 46, "Red");
 			}
-			else if (Color == "Red")
+			else if (Color == Red)
 			{
-				Color = "Blue";
+				Color = Blue;
 				nxtDisplayClearTextLine(2);
 				nxtDisplayStringAt(15, 46, "Blue");
+			}
+		}
+		wait1Msec(300);
+	}
+
+	nxtDisplayTextLine(1, "Choose Side:");
+	nxtDisplayBigStringAt(15,46, "Left");
+	wait1Msec(300);
+
+	while(nNxtButtonPressed != mid)
+	{
+		if (nNxtButtonPressed == left || nNxtButtonPressed == right)
+		{
+			if (Side == Left)
+			{
+				Side = Right;
+				nxtDisplayClearTextLine(2);
+				nxtDisplayStringAt(15,46, "Right");
+			}
+			else if(Side == Right)
+			{
+				Side = Left;
+				nxtDisplayClearTextLine(2);
+				nxtDisplayStringAt(15,46, "Left");
 			}
 		}
 		wait1Msec(300);
