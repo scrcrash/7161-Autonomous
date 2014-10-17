@@ -5,9 +5,8 @@
 	4. Go to Kickstand
 	5. Hit Kickstand
 */
+
 task main()
 {
-
-
 
 }

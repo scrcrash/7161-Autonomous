@@ -1,5 +1,4 @@
-
-/* TASKS TO DO
+/* TASKS TO DO- BLUE
 	1. Move off of ramp [20 points]
 	2. Go to goal
 	3. Grab goal

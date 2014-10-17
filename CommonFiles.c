@@ -188,3 +188,5 @@ void ungripGoal()
 //4 inch diameter wheel
 //12.56 inch circumference
 //1440 / 12.56 = 114.6 ticks per inch
+
+//1120 / 12.56 = 89.17 ticks per inch
