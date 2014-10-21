@@ -130,8 +130,8 @@ void gripGoal()
 	servo[servoHingeR] = 0;
 
 	//Grip tightens around the goal
-	servo[servoGripL] = 100; //CHANGE VALUES LATER
-	servo[servoGripR] = 0;
+	//servo[servoGripL] = 100; //CHANGE VALUES LATER
+	//servo[servoGripR] = 0;
 }
 
 void ungripGoal()
@@ -141,13 +141,15 @@ void ungripGoal()
 	servo[servoGripR] = 100;
 }
 
-//task main()
-//{
-//	//goInches(17, 60);
-//	//turnRightDegrees(90, 60);
-//	turnLeftDegrees(90, 40);
+task main()
+{
+	//goInches(17, 60);
+	//turnRightDegrees(90, 60);
+	//turnLeftDegrees(90, 40);
 
-//}
+	gripGoal();
+
+}
 
 //1440 ticks per revolution
 //4 inch diameter wheel
