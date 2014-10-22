@@ -1,5 +1,5 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTServo)
-#pragma config(Sensor, S1,     IRSeeker,       sensorI2CMuxController)
+#pragma config(Sensor, S4,     IRSensor,       sensorHiTechnicIRSeeker600)
 #pragma config(Motor,  motorA,           ,             tmotorNXT, openLoop, encoder)
 #pragma config(Motor,  motorB,           ,             tmotorNXT, openLoop, encoder)
 #pragma config(Motor,  motorC,           ,             tmotorNXT, openLoop, encoder)
@@ -17,6 +17,6 @@
 #pragma config(Servo,  srvo_S1_C4_6,    servo6,               tServoNone)
 
 #include "CommonFiles.c"
-#include "AutonomousChooserHeaders"
-#include "AutonomousChooserProgram"
-#include "ChooseStrategy"
+//#include "AutonomousChooserHeaders.c"
+//#include "AutonomousChooserProgram.c"
+//#include "ChooseStrategy.c"
