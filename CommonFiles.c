@@ -102,27 +102,6 @@ void goInches(int inch, int speed)
 	}
 }
 
-
-//void findIr() //Using light sensor
-////The darker the environment, the higher the value will be
-//{
-//	while(SensorValue[IRSeeker] != 5) //While the IR sensor hasn't been found
-//	{
-//		while(SensorValue[LightSensor] > 60) //change value later. If the light sensor reads grey (the main floor), turn until it finds yellow
-//		{
-//			motor[motorBR] = -15;
-//			motor[motorBL] = 15;
-//			motor[motorTR] = -15;
-//			motor[motorTL] = 15;
-//		}
-//		//If the light sensor does read yellow, go forward very slowly to try and find the IR sensor
-//		motor[motorBR] = 15;
-//		motor[motorTR] = 15;
-//		motor[motorBL] = 15;
-//		motor[motorTL] = 15;
-//	}
-//}
-
 void findIrRamp()
 {
 	//Goes forward certain distance looking for IR. If doesn't find IR, turns slightly, continues on and looks for IR. If doesn't find it, turns slightly and continues
