@@ -23,6 +23,53 @@
 	4. Go to Kickstand
 	5. Hit Kickstand
 */
+
+void turnLeftDegrees(int degree)
+{
+	int tickGoal = degree * 8;
+	int tickTest = nMotorEncoder[motorTR];
+
+	//reset encoders
+	nMotorEncoder[motorTR] = 0;
+	nMotorEncoder[motorTL] = 0;
+	nMotorEncoder[motorBR] = 0;
+	nMotorEncoder[motorBL] = 0;
+
+	//move forward until encoder reading is more than the goal
+	while(tickTest < tickGoal)
+	{
+		motor[motorTL] = -60;
+		motor[motorTR] = 60;
+		motor[motorBL] = -60;
+		motor[motorBR] = 60;
+
+		tickTest = nMotorEncoder[motorTR];
+	}
+}
+
+void turnRightDegrees(int degree)
+{
+	int tickGoal = degree * 8;
+	int tickTest = nMotorEncoder[motorTL];
+
+	//reset encoders
+	nMotorEncoder[motorTR] = 0;
+	nMotorEncoder[motorTL] = 0;
+	nMotorEncoder[motorBR] = 0;
+	nMotorEncoder[motorBL] = 0;
+
+	//move forward until encoder reading is more than the goal
+	while(tickTest < tickGoal)
+	{
+		motor[motorTL] = 60;
+		motor[motorTR] = -60;
+		motor[motorBL] = 60;
+		motor[motorBR] = -60;
+
+		tickTest = nMotorEncoder[motorTL];
+	}
+}
+
 void goInches(int inch, int speed)
 {
 	int tickGoal = 67 * inch;
@@ -48,5 +95,48 @@ void goInches(int inch, int speed)
 
 task main()
 {
-	goInches(40,60);
+	goInches(23, 60);
+	if(SensorValue[IRSensor] == 5) //Center goal position 3, IR straight in front
+	{
+		//Score ball
+
+		//Kickstand
+		turnRightDegrees(50);
+		goInches(17, 60);
+		turnLeftDegrees(40);
+		goInches(20, 60); //change value
+	}
+	else //Center goal either in position 2 or 1
+	{
+		turnLeftDegrees(90);
+		goInches(23, 60);
+		turnRightDegrees(45); //try to find IR. If IR found, position 2
+		if(SensorValue[IRSensor] == 5) //Center goal in position 2
+		{
+			//Score ball
+
+			//Kickstand
+			turnRightDegrees(50);
+			goInches(17, 60);
+			turnLeftDegrees(40);
+			goInches(20, 60); //change value
+		}
+		//Else in position 3
+		else
+		{
+			turnLeftDegrees(45);
+			goInches(23, 60);
+			turnRightDegrees(90);
+			if(SensorValue[IRSensor] == 5) //Center goal in position 3
+			{
+				//Score ball
+
+				//Kickstand
+				turnRightDegrees(50);
+				goInches(17, 60);
+				turnLeftDegrees(40);
+				goInches(20, 60); //change value
+			}
+		}
+	}
 }
