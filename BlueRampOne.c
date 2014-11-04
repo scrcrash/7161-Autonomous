@@ -116,13 +116,20 @@ void ungripGoal()
 	4. Move goal to parking zone [20 points]
 */
 
+//set robot up backwards
 task main()
 {
-//set robot up backwards
-goInches(72, -60);
-wait1Msec(500);
-goInches(4,30);
-gripGoal();
+	//move backward off ramp
+	goInches(72, -60);
+	wait1Msec(500);
+	//adjust using compass?
+	//move backward again
+	goInches(4,-30);
+//score ball in two different goals
+	//grip and score from basket in one goal
+	gripGoal();
+	//turn, move forward and then score in second goal
+//drive to parking zone pushing goal one
 
 
 }
