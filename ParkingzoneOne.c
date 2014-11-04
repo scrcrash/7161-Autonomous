@@ -40,7 +40,7 @@ void turnLeftDegrees(int degree)
 	nMotorEncoder[motorBR] = 0;
 	nMotorEncoder[motorBL] = 0;
 
-	//move forward until encoder reading is more than the goal
+	//turn until encoder reading is more than the goal
 	while(tickTest < tickGoal)
 	{
 		motor[motorTL] = -60;
@@ -69,7 +69,7 @@ void turnRightDegrees(int degree)
 	nMotorEncoder[motorBR] = 0;
 	nMotorEncoder[motorBL] = 0;
 
-	//move forward until encoder reading is more than the goal
+	//turn until encoder reading is more than the goal
 	while(tickTest < tickGoal)
 	{
 		motor[motorTL] = 60;
