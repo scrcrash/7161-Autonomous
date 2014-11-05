@@ -6,10 +6,10 @@
 #pragma config(Motor,  motorA,           ,             tmotorNXT, openLoop, encoder)
 #pragma config(Motor,  motorB,           ,             tmotorNXT, openLoop, encoder)
 #pragma config(Motor,  motorC,           ,             tmotorNXT, openLoop, encoder)
-#pragma config(Motor,  mtr_S1_C1_1,     motorTL,       tmotorTetrix, PIDControl, encoder)
-#pragma config(Motor,  mtr_S1_C1_2,     motorBL,       tmotorTetrix, PIDControl, encoder)
+#pragma config(Motor,  mtr_S1_C1_1,     motorTL,       tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C1_2,     motorBL,       tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C2_1,     motorTR,       tmotorTetrix, PIDControl, reversed, encoder)
-#pragma config(Motor,  mtr_S1_C2_2,     motorBR,       tmotorTetrix, PIDControl, reversed, encoder)
+#pragma config(Motor,  mtr_S1_C2_2,     motorBR,       tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S1_C3_1,     motorBrush,    tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     motorConveyor, tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     motorPulley,   tmotorTetrix, openLoop)
@@ -90,7 +90,7 @@ void turnRightDegrees(int degree)
 void goInches(int inch, int speed)
 {
 	int tickGoal = 67 * inch;
-	int tickTest = nMotorEncoder[motorBR];
+	int tickTest = nMotorEncoder[motorTR];
 
 	//reset encoders
 	nMotorEncoder[motorTR] = 0;
@@ -106,11 +106,11 @@ void goInches(int inch, int speed)
 		motor[motorBL] = speed;
 		motor[motorBR] = speed;
 
-		tickTest = nMotorEncoder[motorBR];
+		tickTest = nMotorEncoder[motorTR];
 	}
 }
 
-task kickstand()
+void kickstand()
 {
 	while(true)
 	{
@@ -123,7 +123,7 @@ task kickstand()
 	}
 }
 
-task scoreball()
+void scoreball()
 {
 	motor[motorPulley] = 40;
 	wait1Msec(3000); //change value
