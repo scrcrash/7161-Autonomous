@@ -29,6 +29,8 @@
 	5. Hit Kickstand
 */
 
+int ir = SensorValue[IRSensor];
+
 void turnLeftDegrees(int degree)
 {
 	int tickGoal = degree * 10;
@@ -51,6 +53,7 @@ void turnLeftDegrees(int degree)
 		tickTest = nMotorEncoder[motorTR];
 	}
 
+	//stop motors
 	motor[motorTL] = 0;
 	motor[motorTR] = 0;
 	motor[motorBL] = 0;
@@ -60,7 +63,7 @@ void turnLeftDegrees(int degree)
 
 void turnRightDegrees(int degree)
 {
-	int tickGoal = degree * 8;
+	int tickGoal = degree * -13;
 	int tickTest = nMotorEncoder[motorTR];
 
 	//reset encoders
@@ -70,7 +73,7 @@ void turnRightDegrees(int degree)
 	nMotorEncoder[motorBL] = 0;
 
 	//turn until encoder reading is more than the goal
-	while(tickTest < tickGoal)
+	while(tickTest > tickGoal)
 	{
 		motor[motorTL] = 60;
 		motor[motorTR] = -60;
@@ -101,10 +104,10 @@ void goInches(int inch, int speed)
 	//move forward until encoder reading is more than the goal
 	while(tickTest < tickGoal)
 	{
-		motor[motorTL] = speed;
+		motor[motorTL] = -speed;
 		motor[motorTR] = speed;
 		motor[motorBL] = speed;
-		motor[motorBR] = speed;
+		motor[motorBR] = -speed;
 
 		tickTest = nMotorEncoder[motorTR];
 	}
@@ -138,7 +141,8 @@ task main()
 {
 //  waitForStart(); // Wait for the beginning of autonomous phase.
 
-	goInches(10, 60);
+	goInches(27, 60);
+	wait1Msec(5);
 	if(SensorValue[IRSensor] == 5) //Center goal position 3, IR straight in front
 	{
 		//Score ball
@@ -146,41 +150,41 @@ task main()
 		//Kickstand
 		turnRightDegrees(45);
 		//tested to this point
-		goInches(17, 60);
-		turnLeftDegrees(40);
-		goInches(20, 60); //change value
+		goInches(9, 60);
+		turnLeftDegrees(80);
+		//goInches(20, 60); //change value
 	}
-	else //Center goal either in position 2 or 1
-	{
-		turnLeftDegrees(90);
-		goInches(23, 60);
-		turnRightDegrees(45); //try to find IR. If IR found, position 2
-		if(SensorValue[IRSensor] == 5) //Center goal in position 2
-		{
-			//Score ball
+	//else //Center goal either in position 2 or 1
+	//{
+	//	turnLeftDegrees(90);
+	//	goInches(23, 60);
+	//	turnRightDegrees(45); //try to find IR. If IR found, position 2
+	//	if(SensorValue[IRSensor] == 5) //Center goal in position 2
+	//	{
+	//		//Score ball
 
-			//Kickstand
-			turnRightDegrees(50);
-			goInches(17, 60);
-			turnLeftDegrees(40);
-			goInches(20, 60); //change value
-		}
-		//Else in position 3
-		else
-		{
-			turnLeftDegrees(45);
-			goInches(23, 60);
-			turnRightDegrees(90);
-			if(SensorValue[IRSensor] == 5) //Center goal in position 3
-			{
-				//Score ball
+	//		//Kickstand
+	//		turnRightDegrees(50);
+	//		goInches(17, 60);
+	//		turnLeftDegrees(40);
+	//		goInches(20, 60); //change value
+	//	}
+	//	//Else in position 3
+	//	else
+	//	{
+	//		turnLeftDegrees(45);
+	//		goInches(23, 60);
+	//		turnRightDegrees(90);
+	//		if(SensorValue[IRSensor] == 5) //Center goal in position 3
+	//		{
+	//			//Score ball
 
-				//Kickstand
-				turnRightDegrees(50);
-				goInches(17, 60);
-				turnLeftDegrees(40);
-				goInches(20, 60); //change value
-			}
-		}
-	}
+	//			//Kickstand
+	//			turnRightDegrees(50);
+	//			goInches(17, 60);
+	//			turnLeftDegrees(40);
+	//			goInches(20, 60); //change value
+	//		}
+	//	}
+	//}
 }
