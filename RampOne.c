@@ -121,7 +121,7 @@ void ungripGoal()
 task main()
 {
 	//move backward off ramp
-	goInches(72, 60);
+	goInches(72, 30);
 	wait1Msec(500);
 	//adjust using compass?
 
