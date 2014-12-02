@@ -114,7 +114,7 @@ void goBackInches(int inch, int speed)
 	int tickGoal = 67 * inch;
 	int tickTest = 0;
 
-	//move forward until encoder reading is more than the goal
+	//move backward until encoder reading is more than the goal
 	while(tickTest < tickGoal)
 	{
 		motor[motorTL] = -speed;
@@ -125,10 +125,10 @@ void goBackInches(int inch, int speed)
 		tickTest = abs(nMotorEncoder[motorBL]);
 
 	}
-		motor[motorTL] = 0;
-		motor[motorTR] = 0;
-		motor[motorBL] = 0;
-		motor[motorBR] = 0;
+	motor[motorTL] = 0;
+	motor[motorTR] = 0;
+	motor[motorBL] = 0;
+	motor[motorBR] = 0;
 }
 
 //void kickstand()
