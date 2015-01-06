@@ -1,17 +1,14 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  none)
 #pragma config(Hubs,  S2, HTMotor,  none,     none,     none)
 #pragma config(Hubs,  S3, HTServo,  none,     none,     none)
-#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Sensor, S2,     ,               sensorI2CMuxController)
-#pragma config(Sensor, S3,     ,               sensorI2CMuxController)
 #pragma config(Sensor, S4,     IRSensor,       sensorHiTechnicIRSeeker600)
 #pragma config(Motor,  motorA,           ,             tmotorNXT, openLoop, encoder)
 #pragma config(Motor,  motorB,           ,             tmotorNXT, openLoop, encoder)
 #pragma config(Motor,  motorC,           ,             tmotorNXT, openLoop, encoder)
-#pragma config(Motor,  mtr_S1_C1_1,     motorBL,       tmotorTetrix, openLoop, driveRight)
-#pragma config(Motor,  mtr_S1_C1_2,     motorBR,       tmotorTetrix, openLoop, reversed, driveLeft)
-#pragma config(Motor,  mtr_S1_C2_1,     motorTR,       tmotorTetrix, openLoop, reversed, driveRight, encoder)
-#pragma config(Motor,  mtr_S1_C2_2,     motorTL,       tmotorTetrix, openLoop, driveLeft, encoder)
+#pragma config(Motor,  mtr_S1_C1_1,     motorBL,       tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C1_2,     motorBR,       tmotorTetrix, openLoop, reversed)
+#pragma config(Motor,  mtr_S1_C2_1,     motorTR,       tmotorTetrix, openLoop, reversed, encoder)
+#pragma config(Motor,  mtr_S1_C2_2,     motorTL,       tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S1_C3_1,     motorPulley,   tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S1_C3_2,     motorb,        tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     motora,        tmotorTetrix, openLoop)
@@ -155,7 +152,7 @@ void goBackInches(int inch, int speed)
 //}
 
 
-int sensor = SensorValue[IRSensor];
+int Sensor = SensorValue[IRSensor];
 
 task main()
 {
@@ -170,19 +167,19 @@ while(true)  // infinite loop:
 	wait1Msec(50);
 
 	if(sensor == 5) //Center goal position 3, IR straight in front
-	{
-		//move forward
-		//turnRightDegrees(15);
-		//wait1Msec(50);
+		{
+			//move forward
+			turnRightDegrees(15);
+			wait1Msec(50);
 
-		//goInches(5,70);
-		//wait1Msec(50);
+			goInches(5,70);
+			wait1Msec(50);
 
-		////Score ball
+		//Score ball
 
-		////move back to initial position
-		//turnRightDegrees(15);
-		//wait1Msec(50);
+		//move back to initial position
+			//turnRightDegrees(15);
+			//wait1Msec(50);
 
 		//goBackInches(10,70);
 		//wait1Msec(50);
@@ -196,13 +193,13 @@ while(true)  // infinite loop:
 		//goInches(9, 60);
 		//turnLeftDegrees(80);
 		//goInches(20, 60); //change value
-	}
+	//}
 
-	else //Center goal either in position 2 or 1
-	{
-		wait1Msec(50);
+	//else //Center goal either in position 2 or 1
+	//{
+	//	wait1Msec(50);
 
-		turnLeftDegrees(65);
+		//turnLeftDegrees(65);
 
 		//goInches(25,70);
 		//wait1Msec(50);
@@ -239,5 +236,5 @@ while(true)  // infinite loop:
 		//		goInches(20, 60); //change value
 		//	}
 		//}
-	}
+//	}
 }
