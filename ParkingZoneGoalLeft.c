@@ -165,50 +165,24 @@ task main()
 	//initializeRobot();
 
 	//waitForStart();
-
-		ungripGoal();
-		wait1Msec(250);
-
-	//Move backward off ramp
-		goBackInches(70, 70);
-		wait1Msec(1000);
-		turnRightDegrees(10);
-		goBackInches(25, 70);
-		wait1Msec(5);
-		goBackInches(13, 40);
-		wait1Msec(5);
-		goBackInches(5, 20);
-		wait1Msec(5);
-		gripGoal();
-		turnRightDegrees(30);
-		wait1Msec(50);
-		goBackInches(0,0);
-		wait1Msec(500);
-		goInches(30, 70);
-		wait1Msec(50);
-		goBackInches(0,0);
-		wait1Msec(500);
-		turnLeftDegrees(160);
-		wait1Msec(50);
-		//gripGoal();
-		//wait1Msec(50);
-		goBackInches(60,70);
-		wait1Msec(50);
-		//turnLeftDegrees(5);
-		//wait1Msec(50);
-		goBackInches(35,70);
-		wait1Msec(50);
-
-////get out of way
-//		ungripGoal();
-//		wait1Msec(50);
-//		goInches(8,70);
-//		wait1Msec(50);
-//		turnRightDegrees(20);
-//		wait1Msec(50);
-//		goBackInches(20,70);
-//		wait1Msec(50);
-
+ungripGoal();
+wait1Msec(50);
+goBackInches(110,70);
+wait1Msec(50);
+turnLeftDegrees(1);
+wait1Msec(50);
+goBackInches(45,70);
+wait1Msec(50);
+gripGoal();
+wait1Msec(50);
+goInches(35,70);
+wait1Msec(50);
+goInches(5,70);
+wait1Msec(50);
+turnRightDegrees(160);
+wait1Msec(50);
+//goBackInches(90,70);
+//wait1Msec(50);
 
 
 }
